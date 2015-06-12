@@ -14,6 +14,7 @@ Plugin 'Valloric/YouCompleteMe'
 " All plugins managed by Vundle need to be declared before this line.
 call vundle#end()
 filetype plugin indent on
+"let g:ycm_collect_identifiers_from_tags_files = 1
 
 set nobackup " don't create a backup when editing
 set history=25 " number of lines of command-line history:
@@ -113,15 +114,20 @@ map <F3> :%s/\t/    /g<CR>
 " function to condense spaces to tabs
 map <F4> :%s/    /\t/g<CR>
 
+" function to insert the required commit header for vtidirect's commit message parsing
+function! AddGitCommitMessageHeader(number)
+    execute "normal ICR NGMNPKSW-" . a:number  . ": "
+endfunction
+com -nargs=1 CR call AddGitCommitMessageHeader(<f-args>)
+
 colorscheme zenburn
+set guifont=Monospace\ 10
+set foldmethod=syntax
+set foldcolumn=1
 
 " GVIM Specific Options
 if has('gui_running')
-"    colorscheme softzen
-"    set gfn=Luxi\ Mono\ 10
-
     set guioptions-=T " don't show toolbar
-
     set foldmethod=syntax
     set foldcolumn=1
 endif
