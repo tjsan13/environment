@@ -83,6 +83,10 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" move between tabs
+map <C-Left> :tabprevious <CR>
+map <C-Right> :tabnext <CR>
+
 " user <Leader>e to edit a file relative to the current buffer
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
@@ -153,7 +157,7 @@ set diffopt+=vertical
 """ IGT Configuration
 " function to insert the required commit header for vtidirect's commit message parsing
 function! AddGitCommitMessageHeader(number)
-    execute "normal ICR NGMNPKSW-" . a:number  . ": "
+    execute "normal INGMNPKSW-" . a:number  . ": "
 endfunction
 com -nargs=1 CR call AddGitCommitMessageHeader(<f-args>)
 
