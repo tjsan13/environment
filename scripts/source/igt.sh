@@ -31,3 +31,4 @@ function telnet-board() {
 
 alias ssh-nms="ssh idirect@${NMS}"
 
+alias arm-gdb='/opt/altera-linux/linaro/bin/arm-linux-gnueabihf-gdb'
