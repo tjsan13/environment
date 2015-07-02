@@ -1,12 +1,15 @@
 # envrionment variables
 export ENG_LAN=10.90.239.
-export SERIAL_IP=10.90.231.109
 export BOARD=root@$ENG_LAN
-export NMS=10.90.231.20
+export NMS_LAN=10.90.231.
+export SERIAL_IP=10.90.231.109
 
 # altera
-export ALTERAOCLSDKROOT="/opt/altera/hld"
-export QSYS_ROOTDIR="/opt/altera/quartus/sopc_builder/bin"
+export ALTERAOCLSDKROOT='/opt/altera/hld'
+export QSYS_ROOTDIR='/opt/altera/quartus/sopc_builder/bin'
+
+# gdb
+alias arm-gdb='/opt/altera-linux/linaro/bin/arm-linux-gnueabihf-gdb'
 
 # path
 export PATH="/opt/altera-linux/linaro/bin:$PATH"
@@ -29,6 +32,9 @@ function telnet-board() {
     telnet $SERIAL_IP 100${1}
 }
 
-alias ssh-nms="ssh idirect@${NMS}"
+# ssh's to the 10.90.231.x address where x is provided by the user
+# ex. ssh-nms 30 = ssh idirect@10.90.231.30
+function ssh-nms() {
+    ssh idirect@${NMS_LAN}${1}
+}
 
-alias arm-gdb='/opt/altera-linux/linaro/bin/arm-linux-gnueabihf-gdb'
