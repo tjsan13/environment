@@ -162,7 +162,7 @@ set diffopt+=vertical
 """ IGT Configuration
 " function to insert the required commit header for vtidirect's commit message parsing
 function! AddGitCommitMessageHeader(number)
-    execute "normal INGMNPKSW-" . a:number  . ": "
+    execute "normal ICR NGMNPKSW-" . a:number  . ": "
 endfunction
 com -nargs=1 CR call AddGitCommitMessageHeader(<f-args>)
 
