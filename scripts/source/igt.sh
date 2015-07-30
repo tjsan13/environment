@@ -38,3 +38,8 @@ function ssh-nms() {
     ssh idirect@${NMS_LAN}${1}
 }
 
+# add my public key to the remote's authorized_keys file enabling
+# password-less ssh access.
+function authorize-board() {
+    cat ~/.ssh/id_rsa.pub | ssh ${BOARD}${1} 'mkdir .ssh; cat >> .ssh/authorized_keys'
+}
