@@ -41,6 +41,6 @@ function ssh-nms() {
 # add my public key to the remote's authorized_keys file enabling
 # password-less ssh access.
 function authorize-board() {
-    cat ~/.ssh/id_rsa.pub | \
-        ssh ${BOARD}${1} 'mkdir .ssh; cat >> .ssh/authorized_keys; chmod g-w /root; chmod 700 /root/.ssh; chmod 600 /root/.ssh/authorized_keys'
+    ssh ${BOARD}${1} 'chmod g-w /root'
+    ssh-copy-id ${BOARD}${1}
 }
