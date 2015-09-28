@@ -23,7 +23,14 @@ function ssh-board() {
 # scp's the specified file to the 10.90.239.x address where x provided the user
 # ex. scp-board Release/Mobility 26
 function scp-board() {
-    scp $1 ${BOARD}${2}:~
+    echo "$@"
+    local files=${@:1:$#-1}
+    local ip=${@: -1}
+    if [ -z "$files" ]; then
+        echo 'Too few arguments.'
+        return 1
+    fi
+    scp $files ${BOARD}${ip}:~
 }
 
 # telnet's to 10.90.231.109 100x address where x is provided by the user
