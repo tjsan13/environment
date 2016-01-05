@@ -6,10 +6,11 @@ export SERIAL_IP=10.90.231.109
 
 # altera
 export ALTERA_VERSION='14.0'
-export ALTERAOCLSDKROOT="/opt/altera/${ALTERA_VERSION}/hld"
-export QUARTUS_DIR="/opt/altera/${ALTERA_VERSION}/quartus"
-export QSYS_ROOTDIR="/opt/altera/${ALTERA_VERSION}/quartus/sopc_builder/bin"
-export SOPC_KIT_NIOS2="/opt/altera/${ALTERA_VERSION}/nios2eds"
+export ALTERA_HOME="/opt/altera/$ALTERA_VERSION"
+export ALTERAOCLSDKROOT="$ALTERA_HOME/hld"
+export QUARTUS_DIR="$ALTERA_HOME/quartus"
+export QSYS_ROOTDIR="$ALTERA_HOME/quartus/sopc_builder/bin"
+export SOPC_KIT_NIOS2="$ALTERA_HOME/nios2eds"
 export QUARTUS_64BIT=1
 function enable_altera_tools() {
     export PATH="$PATH\
@@ -35,7 +36,7 @@ function enable_vtidirect_build() {
     export INCLUDE="$VTIDIRECT_DEPS_DIR/include"
     export PATH="$PATH:$VTIDIRECT_DEPS_DIR/bin"
     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$VTIDIRECT_DEPS_DIR/lib"
-    export PYTHONPATH="$PYTHONPATH:$VTIDIRECT_DIR/source/arts/hUB_art/packages"
+    export PYTHONPATH="$PYTHONPATH:$VTIDIRECT_DIR/source/arts/hub_art/packages"
 }
 
 # gdb
