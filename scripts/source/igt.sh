@@ -3,6 +3,7 @@ export ENG_LAN=10.90.239.
 export BOARD=root@$ENG_LAN
 export NMS_LAN=10.90.231.
 export SERIAL_IP=10.90.231.109
+export SERIAL_IP_LAB=10.90.231.110
 
 # altera
 export ALTERA_VERSION='14.0'
@@ -68,9 +69,15 @@ function scp-board() {
 }
 
 # telnet's to 10.90.231.109 100x address where x is provided by the user
-# ex. telnet-board 10 = telnet 10.90.231.109 10010
-function telnet-board() {
+# ex. telnet-board-rack 10 = telnet 10.90.231.109 10010
+function telnet-board-rack() {
     telnet $SERIAL_IP 100${1}
+}
+
+# telnetsto 10.90.231.110 100x addess where x is provided by the user
+# ex. telnet-board-lab 17 = tlenet 10.90.231.110 10017
+function telnet-board-lab() {
+    telnet $SERIAL_IP_LAB 100${1}
 }
 
 # ssh's to the 10.90.231.x address where x is provided by the user
