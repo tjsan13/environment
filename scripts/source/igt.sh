@@ -1,8 +1,8 @@
 # envrionment variables
 export ENG_LAN=10.90.239.
 export BOARD=root@$ENG_LAN
-export NMS_LAN=10.90.231.
-export SERIAL_IP=10.90.231.109
+export HUB_LAN=10.90.231.
+export SERIAL_IP_RACK=10.90.231.109
 export SERIAL_IP_LAB=10.90.231.110
 
 # altera
@@ -71,7 +71,7 @@ function scp-board() {
 # telnet's to 10.90.231.109 100x address where x is provided by the user
 # ex. telnet-board-rack 10 = telnet 10.90.231.109 10010
 function telnet-board-rack() {
-    telnet $SERIAL_IP 100${1}
+    telnet $SERIAL_IP_RACK 100${1}
 }
 
 # telnetsto 10.90.231.110 100x addess where x is provided by the user
@@ -81,14 +81,15 @@ function telnet-board-lab() {
 }
 
 # ssh's to the 10.90.231.x address where x is provided by the user
-# ex. ssh-nms 30 = ssh idirect@10.90.231.30
-function ssh-nms() {
-    ssh idirect@${NMS_LAN}${1}
+# ex. ssh-hub 30 = ssh root@10.90.231.30
+function ssh-hub() {
+    ssh root@${HUB_LAN}${1}
 }
 
 # add my public key to the remote's authorized_keys file enabling
 # password-less ssh access.
 function authorize-board() {
+    ssh-keygen -R ${ENG_LAN}${1}
     ssh ${BOARD}${1} 'chmod g-w /root'
     ssh-copy-id ${BOARD}${1}
 }
