@@ -38,6 +38,7 @@ function enable_vtidirect_build() {
     export PATH="$PATH:$VTIDIRECT_DEPS_DIR/bin"
     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$VTIDIRECT_DEPS_DIR/lib"
     export PYTHONPATH="$PYTHONPATH:$VTIDIRECT_DIR/source/arts/hub_art/packages"
+    ulimit -r 32
 }
 
 # gdb
