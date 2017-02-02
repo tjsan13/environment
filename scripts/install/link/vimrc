@@ -249,7 +249,7 @@ map <Leader>P :CtrlP . <CR>
 """ IGT Configuration
 " function to insert the required commit header for vtidirect's commit message parsing
 function! AddGitCommitMessageHeader(number)
-    execute "normal ICR EVOC-" . a:number  . ": "
+    execute "normal ICR EVO-" . a:number  . ": "
 endfunction
 com -nargs=1 CR call AddGitCommitMessageHeader(<f-args>)
 

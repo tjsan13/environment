@@ -1,4 +1,4 @@
-# envrionment variables
+# environment variables
 export ENG_LAN=10.90.239.
 export BOARD=root@$ENG_LAN
 export HUB_LAN=10.90.231.
@@ -6,14 +6,14 @@ export SERIAL_IP_RACK=10.90.231.109
 export SERIAL_IP_LAB=10.90.231.110
 
 # altera
-export ALTERA_VERSION='14.0'
-export ALTERA_HOME="/opt/altera/$ALTERA_VERSION"
-export ALTERAOCLSDKROOT="$ALTERA_HOME/hld"
-export QUARTUS_DIR="$ALTERA_HOME/quartus"
-export QSYS_ROOTDIR="$ALTERA_HOME/quartus/sopc_builder/bin"
-export SOPC_KIT_NIOS2="$ALTERA_HOME/nios2eds"
-export QUARTUS_64BIT=1
 function enable_altera_tools() {
+    export ALTERA_VERSION='14.0'
+    export ALTERA_HOME="/opt/altera/$ALTERA_VERSION"
+    export ALTERAOCLSDKROOT="$ALTERA_HOME/hld"
+    export QUARTUS_DIR="$ALTERA_HOME/quartus"
+    export QSYS_ROOTDIR="$ALTERA_HOME/quartus/sopc_builder/bin"
+    export SOPC_KIT_NIOS2="$ALTERA_HOME/nios2eds"
+    export QUARTUS_64BIT=1
     export PATH="$PATH\
 :$QUARTUS_DIR/bin\
 :$SOPC_KIT_NIOS2/bin\
@@ -41,14 +41,24 @@ function enable_vtidirect_build() {
     ulimit -r 32
 }
 
-# gdb
-alias arm-gdb='/opt/altera-linux/linaro/bin/arm-linux-gnueabihf-gdb'
+# enable predator utilities
+function enable_predator_build {
+    local linaro_dir='/opt/gcc-linaro-4.7'
+    if [[ -d "/opt/altera-linux" ]]; then
+        linaro_dir='/opt/alter-linux/linaro'
+    fi
 
-# path
-export PATH="/opt/altera-linux/linaro/bin:$PATH"
+    # gdb
+    alias arm-gdb="${linaro_dir}/bin/arm-linux-gnueabihf-gdb"
 
-# python (for arts)
-export PATH="$PATH:/opt/python-3.2.5/bin"
+    # path
+    export PATH="${linaro_dir}/bin:$PATH"
+}
+
+function enable_arts {
+    # python (for arts)
+    export PATH="$PATH:/opt/python-3.2.5/bin"
+}
 
 # ssh's to the 10.90.239.x address where x is provided by the user
 # ex. ssh-board 27 = ssh root@10.90.239.27
