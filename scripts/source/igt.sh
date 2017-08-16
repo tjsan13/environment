@@ -55,6 +55,16 @@ function enable_predator_build {
     export PATH="${linaro_dir}/bin:$PATH"
 }
 
+function enable_hub_build {
+    export PP_OPENSSL=1
+    export MAKE_VERBOSE=1
+    export OPTIMIZE=' '
+}
+
+function enable_hub_exe {
+    export LD_LIBRARY_PATH='/home/tsanterre/code/source/software/evolution/iDirect/third_party_libs/lib'
+}
+
 function enable_arts {
     # python (for arts)
     export PATH="$PATH:/opt/python-3.2.5/bin"
