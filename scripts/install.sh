@@ -14,6 +14,8 @@ function install_via_symlink() {
 install_via_symlink bashrc $HOME/.bashrc
 install_via_symlink tmux.conf $HOME/.tmux.conf
 install_via_symlink gitconfig $HOME/.gitconfig
+install_via_symlink camel $HOME/.camel
+install_via_symlink pivotaltrackerrc $HOME/.pivotaltrackerrc
 
 # Install vimrc. This includes setting up vundle.
 install_via_symlink vimrc $HOME/.vimrc

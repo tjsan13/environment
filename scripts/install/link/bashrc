@@ -11,7 +11,14 @@ SOURCE_SCRIPTS_DIR="$ENVIRONMENT_DIR/scripts/source"
 
 # Environment
 export EDITOR=vim
-export PS1="$ "
+case $TERM in
+    xterm*)
+        PS1="\[\e]0;\w\a\\$\] "
+        ;;
+    *)
+        PS1="\$ "
+        ;;
+esac
 
 # bash
 set -o vi
@@ -21,6 +28,11 @@ export HISTIGNORE="&:exit:[bf]g:clear:kill:history"
 
 # ctags
 alias ctags='ctags --fields=+l'
+
+# go
+export GOROOT=/usr/lib/go-1.10
+export GOPATH=$HOME/go
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 # grep
 alias rgrep='grep -R'
@@ -35,6 +47,9 @@ alias man='man -P less'
 
 # path
 export PATH="$ENVIRONMENT_DIR/bin:$PATH"
+
+# perlbrew
+source $HOME/perl5/perlbrew/etc/bashrc
 
 # xdg environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -52,9 +67,6 @@ fi
 if [[ -f "$HOME/.cargo/env" ]]; then
     source $HOME/.cargo/env
 fi
-
-export GOROOT='/home/tsanterre/environment/programs/go'
-export GOPATH='/home/tsanterre/code/learn/go'
 
 # clear temp environment
 unset ENVIRONMENT_DIR
