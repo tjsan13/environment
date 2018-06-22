@@ -14,10 +14,20 @@ function install_via_symlink() {
 
 # Install all files that only require symlink.
 install_via_symlink bashrc $HOME/.bashrc
+install_via_symlink bash_aliases $HOME/.bash_aliases
+install_via_symlink bash_prompt $HOME/.bash_prompt
 install_via_symlink tmux.conf $HOME/.tmux.conf
 install_via_symlink gitconfig $HOME/.gitconfig
 install_via_symlink camel $HOME/.camel
 install_via_symlink pivotaltrackerrc $HOME/.pivotaltrackerrc
+
+
+# Install vscode user settings.
+if [[ -d $HOME/.config/Code/User ]]; then
+    mkdir -p $HOME/.config/Code/User
+fi
+install_via_symlink vscode_settings.json $HOME/.config/Code/User/settings.json
+
 
 
 # Install vscode user settings.
