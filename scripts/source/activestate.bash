@@ -6,7 +6,7 @@ export AS_CAMEL_DIR="$HOME/code/activestate/camel"
 
 # Changes the environment perl to the one needed for camel.
 function cperl() {
-    perlbrew use perl-5.26.2-camel
+    perlbrew use p5.26.2c
     export PERL5LIB="$AS_CAMEL_DIR/local/lib/perl5:$PERL5LIB"
     export PATH="$PATH:$AS_CAMEL_DIR/local/bin"
 }
