@@ -31,7 +31,9 @@ export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 export PATH="$ENVIRONMENT_DIR/bin:$PATH"
 
 # perlbrew
-source $HOME/perl5/perlbrew/etc/bashrc
+if [[ -f "$HOME/perl5/perlbrew/etc/bashrc" ]]; then
+    source $HOME/perl5/perlbrew/etc/bashrc
+fi
 
 # xdg environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
