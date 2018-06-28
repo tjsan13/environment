@@ -1,7 +1,13 @@
 # ActiveState specific environment and functions.
 
+### General Configuration ###
+function winmnt() {
+    # takes one argument: ip of windows box to mount
+    local ip=$1
+    sshfs build@$ip:/ ~/mnt/windows
+}
 
-## Camel configuration ##
+### Camel configuration ###
 export AS_CAMEL_DIR="$HOME/code/activestate/camel"
 
 # Changes the environment perl to the one needed for camel.
@@ -17,7 +23,7 @@ function ckeys() {
 }
 
 
-## Kitchen configuration ##
+### Kitchen configuration ###
 
 # Changes the environment perl to the one needed for kitchen.
 function kperl() {
