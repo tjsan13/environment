@@ -27,6 +27,6 @@ function ckeys() {
 
 # Changes the environment perl to the one needed for kitchen.
 function kperl() {
-    perlbrew use perl-5.26.2-kitchen
+    perlbrew use p5.26.2k
 }
 
