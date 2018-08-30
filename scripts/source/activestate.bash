@@ -19,7 +19,10 @@ function cperl() {
 
 # Sets AWS environment variables for running camel's setup-builds.pl.
 function ckeys() {
-    AWS_ACCESS_KEY_ID=$(cat $HOME/.aws-key-id) AWS_SECRET_ACCESS_KEY=$(cat $HOME/.aws-secret-key) "$@"
+    AWS_ACCESS_KEY_ID=$(cat $HOME/.aws-key-id) \
+        AWS_SECRET_ACCESS_KEY=$(cat $HOME/.aws-secret-key) \
+        GITHUB_TOKEN=$(grep token $HOME/.config/hub | awk '{ print $2; }') \
+        "$@"
 }
 
 
