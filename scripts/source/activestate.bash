@@ -33,3 +33,6 @@ function kperl() {
     perlbrew use p5.26.2k
 }
 
+function start-pg-server() {
+    /usr/lib/postgresql/10/bin/pg_ctl -D /var/lib/postgresql/10/main -l logfile start
+}
