@@ -23,3 +23,5 @@
 [submit-work "pivotaltracker"]
 	token = 4f5102af2ce47637eef294ea07d2b7a4
 	username = tylersanterre
+[url "git@github.com:"]
+	insteadOf = https://github.com/
