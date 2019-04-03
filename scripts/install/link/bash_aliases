@@ -4,6 +4,9 @@
 # ctags
 alias ctags='ctags --fields=+l'
 
+# go
+alias rgo='richgo'
+
 # grep
 alias grep='grep --color=auto'
 alias rgrep='grep -R'

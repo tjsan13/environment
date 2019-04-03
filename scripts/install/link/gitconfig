@@ -5,6 +5,12 @@
     email = tylers@activestate.com
 [core]
     editor = vim
+    packedGitLimit = 512m
+    packedGitWindowSize = 512m
+[pack]
+    deltaCacheSize = 2047m
+    packSizeLimit = 2047m
+    windowMemory = 2047m
 [pull]
 	rebase = true
 [push]
@@ -15,11 +21,6 @@
 	pup = "!f(){ git pull \"$@\" && git submodule init && git submodule sync && git submodule update --recursive; }; f"
 	pulls = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
 	clones = clone --recursive
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
 [submit-work "pivotaltracker"]
 	token = 4f5102af2ce47637eef294ea07d2b7a4
 	username = tylersanterre
