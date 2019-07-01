@@ -25,11 +25,11 @@ shopt -s checkwinsize
 # go
 export GOPATH=$HOME/code/go
 export GOBIN=$GOPATH/bin
-export GOROOT=/usr/local/go
+export GOROOT=$GOPATH/lang/go
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 # kube
-export KUBECONFIG="$HOME/.kube/config:$HOME/.kube/aws-dev"
+export KUBECONFIG="$HOME/.kube/config:$HOME/.kube/aws-dev:$HOME/.kube/development:$HOME/.kube/contexts"
 
 # perlbrew
 if [[ -f "$HOME/perl5/perlbrew/etc/bashrc" ]]; then

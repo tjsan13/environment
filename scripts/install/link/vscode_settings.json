@@ -1,7 +1,6 @@
 {
     "workbench.statusBar.feedback.visible": false,
     "workbench.editor.enablePreview": false,
-    "workbench.list.openMode": "doubleClick",
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -47,10 +46,23 @@
     "cSpell.userWords": [
         "Anka",
         "Ansible",
+        "GOPATH",
         "bazel",
         "centos",
+        "dbmodels",
+        "deque",
         "jemalloc",
-        "tensorflow"
+        "mesos",
+        "repo",
+        "stmts",
+        "tensorflow",
+        "unmarshalling",
+        "uuid"
     ],
     "editor.renderWhitespace": "all",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 0,
+    "go.formatTool": "goimports",
+    "workbench.list.openMode": "doubleClick",
 }
